@@ -6,95 +6,102 @@ En este proyecto, desarrollarás una aplicación basada en Node.js y MongoDB que
 
 Podrás usar alguno de los datasets JSON proporcionados, o crear uno propio que contenga entre 20 y 30 productos, distribuidos en varias categorías.
 
-## Datasets Proporcionados
+## Requisitos previos
 
-- **computacion.json**: Productos de computación, partes, accesorios y repuestos.
-- **electronicos.json**: Productos electrónicos de consumo.
-- **granjas.json**: Frutas y verduras.
-- **mobiliario.json**: Muebles de hogar y oficina.
-- **prendas.json**: Prendas de vestir.
-- **supermercado.json**: Productos de supermercado.
+Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
 
-## Funcionalidades del CRUD
+- Node.js y npm (Node Package Manager)
+- MongoDB instalado y en ejecución en tu máquina local o una URI de MongoDB en la nube
 
-1. **Obtener todos los productos**
-   - Endpoint para leer todos los productos de la colección.
-   - Control de errores para manejar la indisponibilidad de la base de datos.
+## Instalación
 
-2. **Obtener un producto**
-   - Endpoint para obtener un producto por su ID.
-   - Control de errores para manejar casos en que el producto no se encuentre o la base de datos no esté disponible.
+1. **Clona el repositorio:**
 
-3. **Filtrar productos**
-   - Endpoint para filtrar productos por nombre (búsqueda parcial).
-   - Control de errores para manejar coincidencias no encontradas o problemas de conexión.
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+   cd nombre_del_directorio
+   ```
 
-4. **Agregar un nuevo producto**
-   - Endpoint para agregar un nuevo producto.
-   - Validación y control de errores.
-   - Generación de un código numérico para el nuevo producto.
+2. **Instala las dependencias:**
 
-5. **Modificar el precio de un producto**
-   - Endpoint para cambiar el precio de un producto usando PATCH.
-   - Control de errores para manejar problemas durante la actualización.
-     
-6. **Borrar un producto**
-   - Endpoint para borrar un producto usando DELETE.
-   - Control de errores para manejar problemas durante el borrado.
+   ```bash
+   npm install
+   ```
 
-7. **Control de errores**
-   - Manejo de errores en la estructura de las solicitudes y respuestas.
-   - Respuesta adecuada con mensajes y códigos de error específicos.
-   - Control de acceso a rutas no existentes con respuestas apropiadas.
+3. **Configuración de la base de datos:**
 
-## Fechas Importantes
+   - Crea una base de datos en MongoDB.
+   - Configura la URI de MongoDB en el archivo `database.js`.
+   - En este caso usare el dataset de electronicos.json.
 
-- **Avance del Proyecto**: 11 de julio de 2024
-  - Tener listos los endpoints básicos, el control de rutas inexistentes, la conexión con MongoDB y los métodos GET funcionando.
+## Ejecución
 
-- **Presentación Final**: 30 de julio de 2024
-  - Proyecto 100% funcional.
+Para ejecutar la aplicación localmente, utiliza el siguiente comando:
 
-## Estructura del Repositorio
-
-```plaintext
-/json
-  - computacion.json
-  - electronicos.json
-  - granjas.json
-  - mobiliario.json
-  - prendas.json
-  - supermercado.json
-/README.md
-/app.js
-/database.js
-/product.js
+```bash
+npm start
 ```
 
-### Descripción de Archivos
+Esto iniciará el servidor Express en el puerto especificado (por defecto, el puerto 3000).
 
-- **/json**: Carpeta que contiene los datasets JSON.
-- **/README.md**: Archivo con la descripción del proyecto.
-- **/app.js**: Archivo principal de la aplicación Node.js donde se define toda la lógica de rutas y la conexión a la base de datos.
-- **/database.js**: Archivo para configurar la conexión a la base de datos MongoDB.
-- **/product.js**: Archivo que contiene el esquema (schema) del producto utilizando Mongoose.
+## Endpoints
 
-## Instrucciones de Entrega
+### GET /api/products
 
-1. **Fork** el repositorio desde [aquí](https://github.com/FabioDrizZt/Trabajo-Integrador-Backend-Diplomatura-UNTREF/fork).
-2. **Clona** tu fork en tu máquina local.
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio-fork.git
-   ```
-3. Realiza los cambios y sube tu código a tu fork.
-4. **Sube** los cambios a tu fork.
-   ```bash
-   git add .
-   git commit -m "Descripción de los cambios"
-   git push origin main
-   ```
+Devuelve todos los productos.
 
-5. Agrega a los siguientes usuarios como colaboradores en tu repositorio:
+### GET /api/products/:id
+
+Devuelve un producto por su ID.
+
+### POST /api/products
+
+Crea un nuevo producto.
+
+```json
+{
+  "codigo": 1,
+  "nombre": "Producto Ejemplo",
+  "precio": 99.99,
+  "categorias": ["Categoria1", "Categoria2"]
+}
+```
+
+### PUT /api/products/:id
+
+Actualiza un producto existente.
+
+### PATCH /api/products/:id/precio
+
+Actualiza el precio de un producto.
+
+```json
+{
+  "precio": 109.99
+}
+```
+
+### DELETE /api/products/:id
+
+Elimina un producto por su ID.
+
+### GET /api/products/search?nombre={nombre}
+
+Filtra productos por nombre, utiliza params.
+
+## Contribuciones
+
+Si quieres contribuir a este proyecto, por favor sigue estos pasos:
+
+1. Haz un fork del proyecto
+2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`)
+3. Haz commit de tus cambios (`git commit -am 'Agrega nueva característica'`)
+4. Haz push a la rama (`git push origin feature/nueva-caracteristica`)
+5. Crea un pull request
+
+## Autor
+   - [leocouar] (https://github.com/leocouar)
+## Profesores
    - [FabioDrizZt](https://github.com/FabioDrizZt)
    - [JuanNebbia](https://github.com/JuanNebbia)
    - [NKrein](https://github.com/NKrein)
