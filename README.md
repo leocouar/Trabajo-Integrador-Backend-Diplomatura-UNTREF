@@ -100,7 +100,7 @@ Si quieres contribuir a este proyecto, por favor sigue estos pasos:
 5. Crea un pull request
 
 ## Autor
-   - [leocouar] (https://github.com/leocouar)
+   - [leocouar](https://github.com/leocouar)
 ## Profesores
    - [FabioDrizZt](https://github.com/FabioDrizZt)
    - [JuanNebbia](https://github.com/JuanNebbia)
