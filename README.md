@@ -18,7 +18,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
 1. **Clona el repositorio:**
 
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/leocouar/Trabajo-Integrador-Backend-Diplomatura-UNTREF.git
    cd nombre_del_directorio
    ```
 
