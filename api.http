@@ -1,0 +1,58 @@
+GET http://localhost:3000/api/productos HTTP/1.1
+
+###
+
+GET http://localhost:3000/api/productos/66908b6132cec4dfa3559145 HTTP/1.1
+
+###
+
+POST http://localhost:3000/api/productos HTTP/1.1
+content-type: application/json
+
+{
+  "codigo": 5000,
+  "nombre": "Notebook",
+  "precio": 15000000,
+  "categorias": [
+    "Electronica",
+    "Electrodomestico"
+  ]
+}
+
+POST http://localhost:3000/api/productos HTTP/1.1
+content-type: application/json
+
+{
+  "codigo": 5000,
+  "nombre": "Notebook",
+  "precio": 15000000,
+  "categorias": [
+    "Electronica",
+    "Electrodomestico"
+  ]
+}
+
+###
+PATCH http://localhost:3000/api/productos/66908b6132cec4dfa3559145/precio HTTP/1.1
+content-type: application/json
+
+{
+  "precio": 15000000
+}
+
+###
+
+PUT http://localhost:3000/api/productos/66908b6132cec4dfa3559145 HTTP/1.1
+content-type: application/json
+
+{
+  "codigo": 5000,
+  "nombre": "Notebook",
+  "precio": 15000000,
+  "categorias": [
+    "Electronica"
+  ]
+}
+
+###
+DELETE http://localhost:3000/api/productos/66908b6132cec4dfa3559145 HTTP/1.1

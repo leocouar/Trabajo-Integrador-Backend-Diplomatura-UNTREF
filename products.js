@@ -32,7 +32,7 @@ router.get('/search', async (req, res) => {
             return res.status(400).json({ message: 'Debe proporcionar un nombre para buscar' });
         }
 
-        const productos = await Producto.find({ nombre: new RegExp(nombre, 'i') });
+        const productos = await Producto.find({ nombre: new RegExp(nombre, 'i')});
         res.json(productos);
     } catch (error) {
         res.status(500).json({ message: error.message });
